@@ -1,0 +1,58 @@
+syntax="proto3";
+
+package types;
+
+option go_package="ms/server/types";
+
+service Msg {
+	rpc Create(MsgCreate) returns (MsgCreateResponse);
+	rpc Read(MsgRead) returns (MsgReadResponse);
+	rpc Update(MsgUpdate) returns (MsgUpdateResponse);
+	rpc Delete(MsgDelete) returns (MsgDeleteResponse);
+}
+
+// CREATE
+
+message MsgCreate {
+	uint64 id = 1;
+	string content = 2;
+}
+
+message MsgCreateResponse {
+	bool status = 1;
+}
+
+// READ
+
+message MsgRead {
+	uint64 id = 1;
+}
+
+message MsgReadResponse {
+	string content = 1;
+}
+
+// UPDATE
+
+message MsgUpdate {
+	uint64 id = 1;
+	string content = 2;
+}
+
+message MsgUpdateResponse {
+	bool status = 1;
+}
+
+// DELETE
+
+message MsgDelete {
+	uint64 id = 1;
+}
+
+message MsgDeleteResponse {
+	bool status = 1;
+}
+
+
+
+
